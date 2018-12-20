@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "events",
+  "info": {
+    "name": "event",
+    "description": "Events organized by a place"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "photos": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "date": {
+      "default": "",
+      "type": "date",
+      "required": true
+    },
+    "active": {
+      "default": true,
+      "type": "boolean"
+    },
+    "place": {
+      "model": "place",
+      "via": "events"
+    }
+  }
+}

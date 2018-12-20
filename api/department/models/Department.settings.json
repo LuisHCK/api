@@ -1,0 +1,45 @@
+{
+  "connection": "default",
+  "collectionName": "departments",
+  "info": {
+    "name": "department",
+    "description": "Departments of Nicaragua"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "code": {
+      "default": "",
+      "unique": true,
+      "type": "integer"
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "cities": {
+      "collection": "city",
+      "via": "department"
+    },
+    "location": {
+      "default": "",
+      "type": "json"
+    }
+  }
+}

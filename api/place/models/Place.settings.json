@@ -1,0 +1,68 @@
+{
+  "connection": "default",
+  "collectionName": "places",
+  "info": {
+    "name": "place",
+    "description": "Place like hotel, bar, restaurant"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "location": {
+      "default": "",
+      "type": "json"
+    },
+    "email": {
+      "default": "",
+      "unique": true,
+      "type": "email"
+    },
+    "phone1": {
+      "default": "",
+      "type": "string"
+    },
+    "phone2": {
+      "default": "",
+      "type": "string"
+    },
+    "city": {
+      "model": "city",
+      "via": "places"
+    },
+    "albums": {
+      "collection": "album",
+      "via": "place"
+    },
+    "active": {
+      "default": true,
+      "type": "boolean"
+    },
+    "services": {
+      "default": "",
+      "type": "json"
+    },
+    "events": {
+      "collection": "event",
+      "via": "place"
+    }
+  }
+}
